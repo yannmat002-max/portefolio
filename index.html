@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoan Matika | Portfolio Réseaux & Systèmes</title>
+    <style>
+        :root {
+            --bg-black: #030712;
+            --bg-surface: #0b1120;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --cyan: #06b6d4;
+            --cyan-bright: #22d3ee;
+            --cyan-glow: rgba(6, 182, 212, 0.15);
+            --border: #1e293b;
+            --code-bg: #000000;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-black); color: var(--text-main); line-height: 1.6; }
+        header { background-color: #030712; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
+        .logo span { color: var(--cyan-bright); }
+        nav { display: flex; align-items: center; gap: 1.2rem; }
+        nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .nav-cv-btn { color: var(--cyan-bright); border: 1px solid var(--cyan); padding: 0.4rem 0.9rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+        .hero { padding: 4rem 5% 3rem; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .badge { display: inline-block; background-color: var(--cyan-glow); color: var(--cyan-bright); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; border: 1px solid var(--cyan); }
+        .hero h1 { font-size: 2.3rem; margin-bottom: 1rem; font-weight: 800; }
+        .hero h1 span { color: var(--cyan-bright); }
+        .hero p { color: var(--text-muted); max-width: 750px; margin: 0 auto 2rem; }
+        .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary { background-color: var(--cyan); color: var(--bg-black); padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: 700; }
+        .btn-secondary { background-color: var(--bg-surface); color: var(--text-main); padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: 600; border: 1px solid var(--border); }
+        .section-block { max-width: 1100px; margin: 0 auto; padding: 2rem 5%; }
+        .section-title { font-size: 1.6rem; margin-bottom: 1.5rem; border-left: 4px solid var(--cyan); padding-left: 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+        .card { background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .tag { display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--cyan-bright); background-color: var(--cyan-glow); padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 0.6rem; margin-right: 0.4rem; }
+        .place { color: var(--cyan); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.6rem; display: block; }
+        .muted { color: var(--text-muted); font-size: 0.92rem; }
+        .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .filter-btn { background-color: var(--bg-surface); color: var(--text-muted); border: 1px solid var(--border); padding: 0.45rem 1rem; border-radius: 20px; font-size: 0.85rem; cursor: pointer; }
+        .filter-btn.active { background-color: var(--cyan); color: var(--bg-black); font-weight: 700; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; background-color: var(--bg-black); }
+        th, td { border: 1px solid var(--border); padding: 0.6rem; text-align: left; }
+        th { color: var(--cyan-bright); }
+        ul { margin-left: 1.3rem; margin-bottom: 1rem; color: #cbd5e1; }
+        .code-block { background-color: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; font-family: monospace; font-size: 0.82rem; color: #22d3ee; overflow-x: auto; margin-top: 0.8rem; }
+        footer { background-color: var(--bg-surface); border-top: 1px solid var(--border); text-align: center; padding: 3rem 5%; margin-top: 2rem; }
+        .contact-card { display: inline-block; background-color: var(--bg-black); border: 1px solid var(--border); color: var(--text-main); text-decoration: none; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.4rem; font-weight: 600; }
+        @media (max-width: 768px) { nav a:not(.nav-cv-btn) { display: none; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">YOAN<span>.MATIKA</span></div>
+        <nav>
+            <a href="#parcours">Parcours</a>
+            <a href="#competences">Compétences</a>
+            <a href="#projets">Projets</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-cv-btn" onclick="window.print()">⬇ CV PDF</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="badge">📍 Lubumbashi, RDC • Informatique Réseaux & Systèmes</span>
+        <h1>Bonjour, je suis <span>Yoan Matika</span></h1>
+        <p>Étudiant en Licence (LMD) Informatique Réseaux et Systèmes à l'ISC Lubumbashi. Je conçois, déploie et sécurise des infrastructures réseaux locales et des services systèmes.</p>
+        <div class="hero-actions">
+            <a href="#projets" class="btn-primary">Explorer mes projets</a>
+            <a href="#contact" class="btn-secondary" onclick="window.print()">📄 Télécharger / Imprimer CV (PDF)</a>
+        </div>
+    </section>
+
+    <section id="parcours" class="section-block">
+        <h2 class="section-title">Formation & Expérience</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">Stage Académique</span>
+                <h3>Stagiaire Réseaux & Maintenance</h3>
+                <span class="place">Centre Médical Diamant — Lubumbashi</span>
+                <p class="muted">Gestion quotidienne du réseau local de l'établissement médical, maintenance des postes et assistance technique aux utilisateurs.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Formation</span>
+                <h3>Licence (LMD) Informatique Réseaux & Systèmes</h3>
+                <span class="place">ISC Lubumbashi</span>
+                <p class="muted">Architecture des réseaux, routage et commutation, administration Windows/Linux, sécurité et supervision.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="section-block">
+        <h2 class="section-title">Compétences Techniques</h2>
+        <div class="grid">
+            <div class="card">
+                <h3 style="color:#22d3ee; margin-bottom:0.4rem;">Commutation & Routage</h3>
+                <p class="muted">Switchs et routeurs Cisco, segmentation VLAN, Trunk 802.1Q, routage inter-VLAN.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:#22d3ee; margin-bottom:0.4rem;">Services Réseaux</h3>
+                <p class="muted">Serveurs DHCP, DNS et relais DHCP sous Windows Server et Linux.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:#22d3ee; margin-bottom:0.4rem;">Sécurité Réseau</h3>
+                <p class="muted">ACL étendues, chiffrement SSH v2, Port Security sur commutateurs.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:#22d3ee; margin-bottom:0.4rem;">Supervision</h3>
+                <p class="muted">Monitoring via Zabbix et SNMP, simulation sous Cisco Packet Tracer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="section-block">
+        <h2 class="section-title">Projets & Réalisations</h2>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterProjects('all', this)">Tous (4)</button>
+            <button class="filter-btn" onclick="filterProjects('lan', this)">LAN & VLAN</button>
+            <button class="filter-btn" onclick="filterProjects('services', this)">DHCP / DNS</button>
+            <button class="filter-btn" onclick="filterProjects('securite', this)">Sécurité</button>
+            <button class="filter-btn" onclick="filterProjects('supervision', this)">Supervision</button>
+        </div>
+
+        <article class="card project-card" data-category="lan">
+            <span class="tag">Packet Tracer</span> <span class="tag">VLAN 802.1Q</span>
+            <h3 style="margin-bottom:0.8rem;">1. Architecture LAN et Segmentation VLAN</h3>
+            <p class="muted" style="margin-bottom:0.8rem;">Segmentation du réseau local par service pour isoler les flux et optimiser les performances.</p>
+            <table>
+                <tr><th>VLAN</th><th>Nom</th><th>Sous-réseau</th><th>Passerelle</th></tr>
+                <tr><td>VLAN 10</td><td>Utilisateurs</td><td>192.168.10.0/24</td><td>192.168.10.1</td></tr>
+                <tr><td>VLAN 20</td><td>Administration</td><td>192.168.20.0/24</td><td>192.168.20.1</td></tr>
+                <tr><td>VLAN 30</td><td>Serveurs</td><td>192.168.30.0/24</td><td>192.168.30.1</td></tr>
+            </table>
+            <div class="code-block">Switch(config)# vlan 10<br>Switch(config-vlan)# name VLAN_UTILISATEURS<br>Switch(config)# interface fa0/2<br>Switch(config-if)# switchport mode access<br>Switch(config-if)# switchport access vlan 10</div>
+        </article>
+
+        <article class="card project-card" data-category="services">
+            <span class="tag">Windows Server</span> <span class="tag">DHCP & DNS</span>
+            <h3 style="margin-bottom:0.8rem;">2. Déploiement de Services Réseaux (DHCP & DNS)</h3>
+            <ul>
+                <li>Installation du rôle Serveur DHCP (192.168.30.1) et création des étendues dynamiques.</li>
+                <li>Configuration du relais DHCP (ip helper-address) sur le routeur inter-VLAN.</li>
+                <li>Déploiement d'une zone de recherche directe DNS pour les serveurs internes.</li>
+            </ul>
+            <div class="code-block">Router(config)# interface g0/0.10<br>Router(config-subif)# ip helper-address 192.168.30.1</div>
+        </article>
+
+        <article class="card project-card" data-category="securite">
+            <span class="tag">ACL Étendues</span> <span class="tag">SSH v2</span>
+            <h3 style="margin-bottom:0.8rem;">3. Sécurisation et Accès Distant</h3>
+            <ul>
+                <li>Création d'une ACL bloquant le trafic du VLAN 10 vers le VLAN 20 (Administration).</li>
+                <li>Désactivation de Telnet et activation exclusive de SSH v2 pour l'administration distante.</li>
+            </ul>
+            <div class="code-block">Router(config)# access-list 100 deny ip 192.168.10.0 0.0.0.255 192.168.20.0 0.0.0.255<br>Router(config)# access-list 100 permit ip any any</div>
+        </article>
+
+        <article class="card project-card" data-category="supervision">
+            <span class="tag">Zabbix</span> <span class="tag">SNMP</span>
+            <h3 style="margin-bottom:0.8rem;">4. Supervision et Maintenance Proactive</h3>
+            <ul>
+                <li>Déploiement d'un serveur de supervision et activation SNMP sur les équipements réseaux.</li>
+                <li>Surveillance de l'état des interfaces, charge CPU et alertes automatiques ICMP.</li>
+            </ul>
+        </article>
+    </section>
+
+    <footer id="contact">
+        <h2>Contacter Yoan Matika</h2>
+        <p class="muted" style="margin:0.8rem 0 1.5rem;">Disponible à Lubumbashi et à distance pour vos projets réseaux et systèmes.</p>
+        <a href="mailto:yoan.matika@exemple.com" class="contact-card">📧 Email</a>
+        <a href="https://github.com" target="_blank" class="contact-card">💻 GitHub</a>
+        <a href="https://linkedin.com" target="_blank" class="contact-card">🔗 LinkedIn</a>
+        <p class="muted" style="margin-top:2rem; font-size:0.8rem;">© 2026 Yoan Matika</p>
+    </footer>
+
+    <script>
+        function filterProjects(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.project-card').forEach(c => {
+                c.style.display = (cat === 'all' || c.dataset.category === cat) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
